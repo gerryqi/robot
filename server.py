@@ -48,7 +48,7 @@ def message_receive_event_handler(req_data: MessageReceiveEvent):
         # get open_id and text_content
     open_id = sender_id.open_id
     text_content = message.content
-
+    print(text_content)
     chat = QianfanChatEndpoint(streaming=True,)
     res = chat([HumanMessage(content=text_content)])
 
