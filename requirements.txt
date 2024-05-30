@@ -6,3 +6,4 @@ Werkzeug<3
 langchain
 langchain_community
 transformers
+qianfan
