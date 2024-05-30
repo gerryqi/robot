@@ -54,7 +54,7 @@ def message_receive_event_handler(req_data: MessageReceiveEvent):
     text_message = "{\"text\":\"你是谁\"}"
 
     # echo text message res.content
-    message_api_client.send_text_with_open_id(open_id, res.content)
+    message_api_client.send_text_with_open_id(open_id, text_message)
     return jsonify()
 
 
