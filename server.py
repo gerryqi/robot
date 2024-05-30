@@ -24,7 +24,6 @@ VERIFICATION_TOKEN = os.getenv("VERIFICATION_TOKEN")
 ENCRYPT_KEY = os.getenv("ENCRYPT_KEY")
 LARK_HOST = os.getenv("LARK_HOST")
 
-
 # init service
 message_api_client = MessageApiClient(APP_ID, APP_SECRET, LARK_HOST)
 event_manager = EventManager()
@@ -49,11 +48,11 @@ def message_receive_event_handler(req_data: MessageReceiveEvent):
     open_id = sender_id.open_id
     text_content = message.content
     print(text_content)
-    chat = QianfanChatEndpoint(streaming=True,)
+    chat = QianfanChatEndpoint(streaming=True, )
     res = chat([HumanMessage(content=text_content)])
-    text_message = "{\"text\":\"你是谁\"}"
+    text_message = "{\"text\":\"" + res.content + "\"}"
 
-    # echo text message res.content
+    # echo text message 
     message_api_client.send_text_with_open_id(open_id, text_message)
     return jsonify()
 
