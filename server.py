@@ -24,8 +24,8 @@ VERIFICATION_TOKEN = os.getenv("VERIFICATION_TOKEN")
 ENCRYPT_KEY = os.getenv("ENCRYPT_KEY")
 LARK_HOST = os.getenv("LARK_HOST")
 
-QIANFAN_AK = os.getenv("QIANFAN_AK")
-QIANFAN_SK = os.getenv("QIANFAN_SK")
+os.environ["QIANFAN_AK"] = os.getenv("QIANFAN_AK")
+os.environ["QIANFAN_SK"] = os.getenv("QIANFAN_SK")
 
 # init service
 message_api_client = MessageApiClient(APP_ID, APP_SECRET, LARK_HOST)
