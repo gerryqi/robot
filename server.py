@@ -24,8 +24,6 @@ VERIFICATION_TOKEN = os.getenv("VERIFICATION_TOKEN")
 ENCRYPT_KEY = os.getenv("ENCRYPT_KEY")
 LARK_HOST = os.getenv("LARK_HOST")
 
-os.environ["QIANFAN_AK"] = os.getenv("QIANFAN_AK")
-os.environ["QIANFAN_SK"] = os.getenv("QIANFAN_SK")
 
 # init service
 message_api_client = MessageApiClient(APP_ID, APP_SECRET, LARK_HOST)
@@ -56,7 +54,7 @@ def message_receive_event_handler(req_data: MessageReceiveEvent):
 
 
     # echo text message
-    message_api_client.send_text_with_open_id(open_id, res)
+    message_api_client.send_text_with_open_id(open_id, res.content)
     return jsonify()
 
 
