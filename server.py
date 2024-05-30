@@ -51,9 +51,9 @@ def message_receive_event_handler(req_data: MessageReceiveEvent):
     print(text_content)
     chat = QianfanChatEndpoint(streaming=True,)
     res = chat([HumanMessage(content=text_content)])
+    text_message = "{\"text\":\"你是谁\"}"
 
-
-    # echo text message
+    # echo text message res.content
     message_api_client.send_text_with_open_id(open_id, res.content)
     return jsonify()
 
